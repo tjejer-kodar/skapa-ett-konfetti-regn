@@ -1,35 +1,44 @@
-// This function picks the color of every confetti particle.
-// It should return a string with a color or color code,
-// like 'red' or 'rgb(255,0,0)'. Right now it only returns
-// "gray" but if you write conditional statements you could
-// give it either random colors or base the color on the
-// groupName parameter.
+// Om du tittar på projektet i browsern ser du en ensam grå
+// och lite sorglig konfettipartikel. Din uppgift blir att
+// fylla konfettianimationen med färger och liv!
 
+// Funktionen chooseParticleColor styr färgen på varje enskild
+// partikel. Den ska returnera en text-sträng som innehåller en
+// CSS-färg. Returnerar den samma färg varje gång så kommer alla
+// partiklar ha samma färg men om den returnerar olika färger
+// t.ex. baserat på slump eller baserat på inparametern groupName
+// så kan det istället bli en blandning av färger.
 const chooseParticleColor = (groupName) => {
-  return "gray"
+  return 'gray'
 }
 
-// This function is called to shoot the confetti. The
-// function that comes in as a parameter can be called
-// multiple times to shoot confetti in different directions
-// and from different positions.
-const bang = (addConfettiParticles) => {
 
-  // As mentioned, you can call this function 👇 multiple
-  // times with different values for the parameters. Begin
-  // with changing the values and see what happens!
+// Denna funktion anropas för att skjuta ut konfetti. Funktionen
+// som kommer in som parameter addConfettiParticles kan anropas en
+// eller flera gånger för att skjuta konfetti åt olika håll och
+// från olika platser på skärmen
+
+const bang = (addConfettiParticles) => {
+  // Funktionen addConfettiParticles tar in ett antal parametrar
+  // för att styra hur en konfettiexplosion ser ut. Antalet partiklar,
+  // var på skärmen som partiklarna kommer ifrån, vilken riktning
+  // (och med vilken hastighet) de flyger, hur mycket partiklarna
+  // sprider ut sig från varandra samt ett gruppnamn som skickas in i
+  // chooseParticleColor. Ändra på dessa värden och se vad som händer!
   addConfettiParticles({
-    groupName: 'gray',  // Name of the group
-    particleAmount: 1,  // Amount of confetti particles
-    xPosition: 50,      // Position in percentage of the screen's width, 0 is to the far left, 100 to the far right
-    yPosition: 50,      // Position in percentage of the screen's height, 0 is to the far bottom, 100 to the far top
-    xVelocity: 0,       // Horizontal velocity, negative values goes to the left and positive values to the right
-    yVelocity: 2,       // Vertical velocity, negative values goes down, positive values goes up
-    xSpread: 80,        // Random spread on the particle's horizontal velocity
-    ySpread: 20         // Random spread on the particle's vertical velocity
+    groupName: 'lonely sad confetti',  // Valfritt namn på gruppen
+    particleAmount: 1,  // Antal konfettipartiklar
+    xPosition: 50,      // Position i procent av skärmens bredd, 0 är längst till vänster och 100 längst till höger
+    yPosition: 50,      // Position i procent av skärmens höjd, 0 är längst ner och 100 högst upp
+    xVelocity: 0,       // Hastighet i sidled, positiva värden åker åt höger och negativa åt vänster
+    yVelocity: 2,       // Hastighet i höjdled, positiva värden åker uppåt och negativa värden nedåt
+    xSpread: 80,        // Slumpmässig spridning på partikelns hastighet i sidled
+    ySpread: 20         // Slumpmässig spridning på partikelns hastighet i höjdled
   })
 }
 
+// Här exporterar vi funktionerna så att de kan användas i
+// confetti-creator-filen som du inte behöver bry dig om
 export {
   chooseParticleColor,
   bang

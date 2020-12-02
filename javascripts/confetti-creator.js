@@ -1,3 +1,6 @@
+// Den här filen behöver du inte bry dig om.
+// Men tjuvkika gärna!
+
 import { chooseParticleColor, bang } from '../confetti.js'
 
 const addConfettiParticles = ({ groupName, particleAmount, xPosition, yPosition, xVelocity, yVelocity, xSpread, ySpread }) => {
@@ -119,7 +122,7 @@ document.querySelector('#confettiButton').addEventListener('click', () => {
   bang(addConfettiParticles)
 })
 
-//Just for style
+//Styling
 document.querySelectorAll('button').forEach((btn) => btn.addEventListener('mousedown', (e) => {
   gsap.to(btn, { duration: 0.1, scale: 0.9 })
 }))
